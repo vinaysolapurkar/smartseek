@@ -1,0 +1,66 @@
+{
+  "name": "clawdbot-lite",
+  "version": "1.0.0",
+  "description": "The cheapest way to run your own AI assistant - powered by DeepSeek AI",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "gateway": "node dist/index.js --gateway-only",
+    "tui": "node dist/index.js --tui-only",
+    "setup": "node dist/setup.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "service:install": "node dist/index.js service install",
+    "service:uninstall": "node dist/index.js service uninstall",
+    "service:start": "node dist/index.js service start",
+    "service:stop": "node dist/index.js service stop"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "deepseek",
+    "chatbot",
+    "telegram",
+    "windows",
+    "self-hosted",
+    "cheap",
+    "cost-effective"
+  ],
+  "author": "ClawdBot Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pocketparent/clawdbot-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pocketparent/clawdbot-lite/issues"
+  },
+  "homepage": "https://github.com/pocketparent/clawdbot-lite#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "node-windows": "^1.0.0-beta.8",
+    "winston": "^3.11.0",
+    "ws": "^8.16.0",
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.64.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.10",
+    "@types/express": "^4.17.21",
+    "@types/node-telegram-bot-api": "^0.64.1",
+    "typescript": "^5.3.0",
+    "tsx": "^4.7.0",
+    "vitest": "^1.2.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0"
+  }
+}
