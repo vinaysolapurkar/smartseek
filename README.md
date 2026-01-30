@@ -1,32 +1,111 @@
 # SmartSeek
 
-**Make DeepSeek smarter with intelligence augmentation** - 100x cheaper than GPT-4.
+**Intelligence augmentation for DeepSeek** - GPT-4 level performance at 1% of the cost.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-green.svg)](https://nodejs.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)](https://www.microsoft.com/windows)
+[![Built on ClawdBot](https://img.shields.io/badge/Built%20on-ClawdBot-purple.svg)](https://github.com/pocketparent/clawdbot)
 
-## Why SmartSeek?
+---
 
-| Feature | SmartSeek | GPT-4 | Claude |
-|---------|-----------|-------|--------|
-| **Cost per 1M tokens** | $0.14 input / $0.28 output | $30 input / $60 output | $15 input / $75 output |
-| **Savings** | **100x cheaper!** | Baseline | 50% cheaper than GPT-4 |
-| **Self-hosted** | ✅ Yes | ❌ No | ❌ No |
-| **Windows Service** | ✅ Yes | ❌ No | ❌ No |
-| **Telegram Bot** | ✅ Built-in | ❌ No | ❌ No |
-| **Intelligence Boost** | ✅ Chain-of-thought, tools, ReAct | ❌ Basic | ❌ Basic |
+## Credits
+
+> **SmartSeek is built on top of [ClawdBot](https://github.com/pocketparent/clawdbot)** - the powerful, extensible AI assistant platform. All core architecture, resilience patterns, supervisor system, and foundational infrastructure come from the incredible ClawdBot project. SmartSeek is an extension that adds DeepSeek optimization and intelligence augmentation on top of ClawdBot's solid foundation.
+
+---
 
 ## What is SmartSeek?
 
-SmartSeek takes **DeepSeek** (a cheap but capable LLM) and makes it **smarter** through:
+SmartSeek is an **intelligence amplification layer** that wraps DeepSeek (a cheap but capable LLM) with advanced reasoning techniques to achieve GPT-4 level performance at a fraction of the cost.
 
-- 🧠 **Chain-of-thought prompting** - forces step-by-step reasoning
-- 🔧 **Tool use** - calculator, web search, code execution
-- 🔄 **ReAct agent** - iterative reasoning + acting for complex tasks
-- ✅ **Self-reflection** - verifies and improves its own answers
+### The Problem
 
-Result: **GPT-4 level intelligence at 1% of the cost.**
+| Challenge | Impact |
+|-----------|--------|
+| GPT-4/Claude are expensive | $15-75 per million tokens |
+| DeepSeek is cheap but less capable | Good for simple tasks, struggles with complex reasoning |
+| Running AI 24/7 gets costly | Personal assistants need to be affordable |
+
+### The Solution
+
+SmartSeek augments DeepSeek with intelligence techniques:
+
+| Technique | What It Does | When It Helps |
+|-----------|--------------|---------------|
+| **Chain-of-Thought** | Forces step-by-step reasoning before answering | Complex logic, math, analysis |
+| **Tool Use** | Executes calculator, web search, code | Factual queries, calculations |
+| **ReAct Agent** | Iterative Reasoning → Action → Observation | Multi-step research tasks |
+| **Self-Reflection** | Reviews and improves its own answers | Catching mistakes, verification |
+
+**Result:** DeepSeek + SmartSeek ≈ GPT-4 quality at **100x lower cost**.
+
+---
+
+## Use Cases
+
+### 1. 24/7 Personal AI Assistant
+Run your own always-available AI assistant via Telegram or WebSocket.
+```
+You: What's 15% tip on a $67.50 dinner bill?
+SmartSeek: [uses calculator] 15% of $67.50 = $10.13. Total with tip: $77.63
+```
+
+### 2. Research Assistant
+Complex questions requiring multiple steps and web lookups.
+```
+You: What are the pros and cons of Next.js vs Remix for a new project?
+SmartSeek: [searches web, analyzes docs, compares]
+Let me research both frameworks...
+[Provides detailed comparison with current 2024 information]
+```
+
+### 3. Math & Calculation Helper
+Accurate calculations using the built-in calculator tool.
+```
+You: If I invest $10,000 at 7% compound interest for 20 years, what do I get?
+SmartSeek: [uses calculator] $10,000 × (1.07)^20 = $38,696.84
+```
+
+### 4. Code Assistant
+Coding help with ability to execute and verify code.
+```
+You: Write a function to find the longest palindrome in a string
+SmartSeek: [writes code, reasons through approach]
+Here's an efficient O(n²) solution using expand-around-center...
+```
+
+### 5. Telegram Bot
+Chat with your AI from anywhere using your phone.
+```
+[Telegram] You: Summarize the key React 19 features
+[Telegram] SmartSeek: [searches, analyzes] Here are the key features...
+```
+
+### 6. Self-Healing Windows Service
+Install as a Windows Service that runs 24/7, survives reboots, and auto-recovers.
+```powershell
+smartseek service install   # Install as Windows Service
+smartseek service start     # Start the service
+# Now runs forever - auto-restarts on crash, starts on boot
+```
+
+---
+
+## Cost Comparison
+
+| Provider | Input (per 1M) | Output (per 1M) | Monthly Cost* |
+|----------|----------------|-----------------|---------------|
+| **SmartSeek** | **$0.14** | **$0.28** | **~$1** |
+| DeepSeek R1 | $0.55 | $2.19 | ~$5 |
+| GPT-4 | $30.00 | $60.00 | ~$100+ |
+| Claude | $15.00 | $75.00 | ~$150+ |
+
+*Estimated for personal use (~100 queries/day)
+
+**SmartSeek is 100x cheaper than GPT-4!**
+
+---
 
 ## Quick Start
 
@@ -38,110 +117,134 @@ cd smartseek
 INSTALL.bat
 ```
 
+The installer will:
+1. Check/install Node.js if needed
+2. Install all dependencies
+3. Build the project
+4. Run interactive setup (asks for DeepSeek API key)
+
 ### Manual Install
 
 ```powershell
-# Clone the repo
 git clone https://github.com/vinaysolapurkar/smartseek.git
 cd smartseek
-
-# Install dependencies
 npm install
-
-# Build
 npm run build
-
-# Run setup (will ask for DeepSeek API key)
-npm run setup
-
-# Start the assistant
-npm start
+npm run setup    # Interactive wizard
+npm start        # Start SmartSeek
 ```
 
-## Getting Your API Keys
-
-### DeepSeek API Key (Required)
+### Get Your DeepSeek API Key
 
 1. Go to [platform.deepseek.com](https://platform.deepseek.com/api_keys)
-2. Create an account (free)
-3. Generate an API key
-4. Add credits ($5 will last months of heavy use!)
+2. Create account (free)
+3. Generate API key
+4. Add $5 credits (lasts months of heavy use!)
 
-### Telegram Bot Token (Optional)
+### Optional: Telegram Bot
 
-1. Open Telegram and search for [@BotFather](https://t.me/BotFather)
-2. Send `/newbot` and follow instructions
+1. Open Telegram, search for [@BotFather](https://t.me/BotFather)
+2. Send `/newbot`, follow instructions
 3. Copy the bot token
+4. Enter it during setup
+
+---
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────┐
-│         AI SUPERVISOR (Windows Service)      │
-│    - Monitors worker health (heartbeat)      │
-│    - AI-powered crash recovery               │
-│    - Auto-restart on failures                │
-└──────────────────┬──────────────────────────┘
-                   │ IPC
-┌──────────────────▼──────────────────────────┐
-│         GATEWAY WORKER (Child Process)       │
-│    - Handles all AI requests                 │
-│    - Circuit breakers prevent cascade        │
-│    - Timeouts on all operations              │
-│    - Bounded queues with backpressure        │
-└──────────────────┬──────────────────────────┘
-                   │
-┌──────────────────▼──────────────────────────┐
-│         INTELLIGENCE LAYER                   │
-│    - Chain-of-thought prompting              │
-│    - Tool use (calculator, web search)       │
-│    - ReAct agent for complex tasks           │
-│    - Self-reflection & verification          │
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│            SUPERVISOR (Windows Service)          │
+│     Powered by ClawdBot's resilience system      │
+│     • Heartbeat monitoring (5s interval)         │
+│     • AI-powered recovery decisions              │
+│     • Auto-restart with exponential backoff      │
+└──────────────────────┬──────────────────────────┘
+                       │ IPC
+┌──────────────────────▼──────────────────────────┐
+│            GATEWAY WORKER                        │
+│     • WebSocket server (ws://localhost:18789)    │
+│     • Telegram bot integration                   │
+│     • Circuit breakers & bounded queues          │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│            INTELLIGENCE LAYER (SmartSeek)        │
+│     • Chain-of-thought prompting                 │
+│     • Tool executor (calc, web, code)            │
+│     • ReAct agent for complex tasks              │
+│     • Self-reflection & verification             │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│            DEEPSEEK API                          │
+│     • deepseek-chat (fast, cheap)                │
+│     • deepseek-reasoner (R1, smarter)            │
+└─────────────────────────────────────────────────┘
 ```
+
+---
 
 ## Features
 
-### 🧠 Intelligence Augmentation (The "Smart" in SmartSeek)
+### Intelligence Augmentation
+- **Chain-of-Thought**: System prompts that enforce step-by-step reasoning
+- **Tool Use**: Calculator, web search, code execution, current time
+- **ReAct Agent**: Thought → Action → Observation loops for complex tasks
+- **Self-Reflection**: Automatic answer review and improvement
 
-DeepSeek alone is good but not great. SmartSeek makes it smarter:
+### Resilience (from ClawdBot)
+- **Supervisor/Worker**: Process isolation - crashes don't kill the service
+- **Heartbeat Monitoring**: Detects hung processes in 15 seconds
+- **Circuit Breakers**: Prevents cascade failures
+- **Bounded Queues**: Handles backpressure gracefully
+- **AI-Powered Recovery**: Smart restart decisions
 
-| Technique | What it does | Example |
-|-----------|--------------|---------|
-| **Chain-of-thought** | Forces step-by-step reasoning | "Let me think through this..." |
-| **Tool use** | Executes code, searches web | Calculator for math, web for facts |
-| **ReAct agent** | Iterative reason → act → observe | Complex multi-step tasks |
-| **Self-reflection** | Reviews and improves answers | "Wait, let me verify that..." |
+### Multi-Channel
+- **Telegram Bot**: Chat from your phone
+- **WebSocket API**: Integrate with your apps
+- **Health Endpoints**: `/health`, `/metrics`, `/stats`
 
-### 🛡️ Ultra-Resilient
+### Windows Native
+- **Windows Service**: Proper service with auto-start
+- **One-Click Installer**: INSTALL.bat handles everything
 
-- **Supervisor/Worker architecture** - crashes don't kill the service
-- **Heartbeat monitoring** - detects hung processes in 15 seconds
-- **AI-powered recovery** - decides whether to restart, wait, or escalate
-- **Circuit breakers** - prevents cascade failures
-- **Bounded queues** - handles backpressure gracefully
+---
 
-### 💬 Multi-Channel
+## Commands
 
-- **Telegram** - chat from your phone
-- **WebSocket API** - integrate with your apps
-- **Health endpoint** - monitor at `/health`
+```bash
+# Start (supervisor mode - recommended for production)
+npm start
 
-### 💰 Cost Effective
+# Start (direct mode - for development)
+npm start -- --direct
 
-- **DeepSeek Chat**: $0.14/M input, $0.28/M output
-- **DeepSeek Reasoner (R1)**: $0.55/M input, $2.19/M output
-- **Monthly cost**: Typically under $1 for personal use!
+# Run setup wizard
+npm run setup
+
+# Windows Service
+npm run service:install
+npm run service:start
+npm run service:stop
+npm run service:uninstall
+
+# Health check
+curl http://localhost:18790/health
+```
+
+---
 
 ## Configuration
 
-Configuration is stored in `~/.smartseek/config.json`:
+Stored at `~/.smartseek/config.json`:
 
 ```json
 {
   "deepseek": {
-    "apiKey": "sk-your-key-here",
-    "model": "deepseek-chat"
+    "apiKey": "sk-your-key",
+    "model": "deepseek-chat",
+    "reasonerModel": "deepseek-reasoner"
   },
   "telegram": {
     "enabled": true,
@@ -154,75 +257,90 @@ Configuration is stored in `~/.smartseek/config.json`:
 }
 ```
 
-## Commands
-
-### CLI
-
-```bash
-# Start everything (supervisor + worker)
-npm start
-
-# Start gateway only (no supervisor)
-npm run gateway
-
-# Install as Windows Service
-npm run service:install
-
-# Check health
-curl http://localhost:18790/health
-```
-
-## API Endpoints
-
-| Endpoint | Description |
-|----------|-------------|
-| `ws://localhost:18789` | WebSocket gateway |
-| `http://localhost:18790/health` | Health check |
-| `http://localhost:18790/metrics` | Prometheus metrics |
-| `http://localhost:18790/stats` | Detailed statistics |
-
-## Why "SmartSeek"?
-
-**Smart** + **DeepSeek** = **SmartSeek**
-
-We take DeepSeek's affordable LLM and augment it with intelligence techniques to match expensive models at a fraction of the cost.
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
-
-```bash
-# Fork and clone
-git clone https://github.com/YOUR_USERNAME/smartseek.git
-
-# Create feature branch
-git checkout -b feature/amazing-feature
-
-# Make changes and test
-npm test
-
-# Commit and push
-git commit -m "Add amazing feature"
-git push origin feature/amazing-feature
-
-# Open a Pull Request
-```
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-## Credits
-
-- Powered by [DeepSeek AI](https://deepseek.com)
-- Intelligence augmentation inspired by ReAct, Chain-of-Thought papers
-
-## Support
-
-- 🐛 [Report bugs](https://github.com/vinaysolapurkar/smartseek/issues)
-- 💡 [Request features](https://github.com/vinaysolapurkar/smartseek/issues)
-- 💬 [Discussions](https://github.com/vinaysolapurkar/smartseek/discussions)
+Environment variables:
+- `DEEPSEEK_API_KEY` - API key (overrides config)
+- `TELEGRAM_BOT_TOKEN` - Bot token (overrides config)
+- `SMARTSEEK_PORT` - WebSocket port (default: 18789)
+- `SMARTSEEK_HEALTH_PORT` - Health port (default: 18790)
 
 ---
 
-**Make AI affordable. Make DeepSeek smart. Use SmartSeek.**
+## API
+
+### WebSocket (ws://localhost:18789)
+
+```json
+// Send
+{"type": "chat", "id": "1", "content": "What is 2+2?"}
+
+// Receive
+{"type": "response", "id": "1", "content": "2 + 2 = 4"}
+```
+
+### Health Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /health` | Health status (healthy/unhealthy) |
+| `GET /metrics` | Prometheus-format metrics |
+| `GET /stats` | Detailed JSON statistics |
+
+---
+
+## Credits & Acknowledgments
+
+### ClawdBot - The Foundation
+
+**SmartSeek is built entirely on top of [ClawdBot](https://github.com/pocketparent/clawdbot).**
+
+ClawdBot provides:
+- Multi-model AI assistant platform
+- Supervisor/Worker architecture for reliability
+- Circuit breakers, timeouts, bounded queues
+- Health monitoring infrastructure
+- Configuration management system
+- Cross-platform support
+
+SmartSeek adds:
+- DeepSeek-first optimization for cost savings
+- Intelligence augmentation layer (CoT, tools, ReAct, reflection)
+- Simplified Windows-focused deployment
+- One-click installer for easy setup
+
+**All credit for the core infrastructure goes to the ClawdBot team.**
+
+### Other Credits
+- **[DeepSeek](https://deepseek.com)** - Affordable, capable AI models
+- **[Anthropic](https://anthropic.com)** - Claude helped build this
+- Research papers on Chain-of-Thought and ReAct patterns
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE).
+
+---
+
+## Links
+
+| Resource | URL |
+|----------|-----|
+| SmartSeek | https://github.com/vinaysolapurkar/smartseek |
+| **ClawdBot** (parent project) | https://github.com/pocketparent/clawdbot |
+| DeepSeek API | https://platform.deepseek.com |
+| Issues | https://github.com/vinaysolapurkar/smartseek/issues |
+
+---
+
+<p align="center">
+<strong>SmartSeek: GPT-4 intelligence at DeepSeek prices.</strong>
+<br>
+<em>Built with love on top of <a href="https://github.com/pocketparent/clawdbot">ClawdBot</a>.</em>
+</p>
