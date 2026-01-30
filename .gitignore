@@ -44,5 +44,8 @@ tmp/
 temp/
 *.tmp
 
+# Claude Code
+.claude/
+
 # Lock files (keep package-lock.json or pnpm-lock.yaml)
 yarn.lock

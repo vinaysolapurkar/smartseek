@@ -8,19 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-01-30
 
 ### Added
-- Initial release
+- Initial release of SmartSeek
 - DeepSeek AI integration (chat and reasoner models)
+- Intelligence augmentation layer:
+  - Chain-of-thought prompting
+  - Tool use (calculator, web search, code execution)
+  - ReAct agent for complex tasks
+  - Self-reflection and verification
 - Supervisor/Worker architecture for 24/7 reliability
 - AI-powered crash recovery
 - Heartbeat monitoring (5s interval, 15s timeout)
 - Circuit breaker pattern for resilience
 - Bounded queues with backpressure handling
 - Timeout wrappers for all operations
-- Intelligence augmentation layer:
-  - Chain-of-thought prompting
-  - Tool use (calculator, web search, code execution)
-  - ReAct agent for complex tasks
-  - Self-reflection and verification
 - Telegram bot integration
 - WebSocket gateway
 - Health endpoints (/health, /metrics, /stats)

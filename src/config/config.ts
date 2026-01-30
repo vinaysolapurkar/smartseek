@@ -1,5 +1,5 @@
 /**
- * ClawdBot Lite Configuration
+ * SmartSeek Configuration
  */
 
 import { join } from 'node:path';
@@ -39,7 +39,7 @@ export type Config = {
 };
 
 const getConfigDir = (): string => {
-  return process.env.CLAWDBOT_LITE_CONFIG_DIR || join(homedir(), '.clawdbot-lite');
+  return process.env.SMARTSEEK_CONFIG_DIR || join(homedir(), '.smartseek');
 };
 
 const getDefaultConfig = (): Config => {
@@ -59,18 +59,18 @@ const getDefaultConfig = (): Config => {
       botToken: process.env.TELEGRAM_BOT_TOKEN || '',
     },
     gateway: {
-      port: parseInt(process.env.CLAWDBOT_PORT || '18789', 10),
-      healthPort: parseInt(process.env.CLAWDBOT_HEALTH_PORT || '18790', 10),
-      host: process.env.CLAWDBOT_HOST || '127.0.0.1',
+      port: parseInt(process.env.SMARTSEEK_PORT || '18789', 10),
+      healthPort: parseInt(process.env.SMARTSEEK_HEALTH_PORT || '18790', 10),
+      host: process.env.SMARTSEEK_HOST || '127.0.0.1',
     },
     supervisor: {
-      enabled: process.env.CLAWDBOT_SUPERVISOR !== 'false',
+      enabled: process.env.SMARTSEEK_SUPERVISOR !== 'false',
     },
     logging: {
-      level: (process.env.CLAWDBOT_LOG_LEVEL as Config['logging']['level']) || 'info',
+      level: (process.env.SMARTSEEK_LOG_LEVEL as Config['logging']['level']) || 'info',
       console: true,
       file: true,
-      filePath: join(logDir, 'clawdbot-lite.log'),
+      filePath: join(logDir, 'smartseek.log'),
     },
     paths: {
       configDir,

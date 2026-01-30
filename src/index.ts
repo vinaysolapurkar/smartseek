@@ -1,8 +1,8 @@
 /**
- * ClawdBot Lite - Main Entry Point
+ * SmartSeek - Main Entry Point
  *
- * The cheapest way to run your own AI assistant.
- * Powered by DeepSeek AI.
+ * Make DeepSeek smarter with intelligence augmentation.
+ * 100x cheaper than GPT-4!
  */
 
 import { fileURLToPath } from 'node:url';
@@ -29,16 +29,21 @@ function showBanner(): void {
   console.log(`
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║   ██████╗██╗      █████╗ ██╗    ██╗██████╗ ██████╗  ██████╗ ████████╗   ║
-║  ██╔════╝██║     ██╔══██╗██║    ██║██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝   ║
-║  ██║     ██║     ███████║██║ █╗ ██║██║  ██║██████╔╝██║   ██║   ██║      ║
-║  ██║     ██║     ██╔══██║██║███╗██║██║  ██║██╔══██╗██║   ██║   ██║      ║
-║  ╚██████╗███████╗██║  ██║╚███╔███╔╝██████╔╝██████╔╝╚██████╔╝   ██║      ║
-║   ╚═════╝╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═════╝ ╚═════╝  ╚═════╝    ╚═╝      ║
-║                         L I T E                               ║
+║   ███████╗███╗   ███╗ █████╗ ██████╗ ████████╗                ║
+║   ██╔════╝████╗ ████║██╔══██╗██╔══██╗╚══██╔══╝                ║
+║   ███████╗██╔████╔██║███████║██████╔╝   ██║                   ║
+║   ╚════██║██║╚██╔╝██║██╔══██║██╔══██╗   ██║                   ║
+║   ███████║██║ ╚═╝ ██║██║  ██║██║  ██║   ██║                   ║
+║   ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝                   ║
+║               ███████╗███████╗███████╗██╗  ██╗                ║
+║               ██╔════╝██╔════╝██╔════╝██║ ██╔╝                ║
+║               ███████╗█████╗  █████╗  █████╔╝                 ║
+║               ╚════██║██╔══╝  ██╔══╝  ██╔═██╗                 ║
+║               ███████║███████╗███████╗██║  ██╗                ║
+║               ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝                ║
 ║                                                               ║
-║   Powered by DeepSeek AI - The cheapest way to run AI         ║
-║   Cost: ~$0.14/million tokens (100x cheaper than GPT-4!)      ║
+║   Make DeepSeek smarter - 100x cheaper than GPT-4!            ║
+║   Cost: ~$0.14/million tokens                                 ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 `);
@@ -89,7 +94,7 @@ async function main(): Promise<void> {
   if (command === 'help' || command === '--help' || command === '-h') {
     showBanner();
     console.log(`
-Usage: clawdbot-lite [command] [options]
+Usage: smartseek [command] [options]
 
 Commands:
   (none)              Start the AI assistant (supervisor mode)
@@ -102,21 +107,20 @@ Commands:
 
 Options:
   --gateway-only      Start only the gateway (no TUI)
-  --tui-only          Start only the TUI (connect to running gateway)
   --direct            Run without supervisor (development mode)
 
 Examples:
-  clawdbot-lite                    # Start normally
-  clawdbot-lite setup              # Run setup wizard
-  clawdbot-lite service install    # Install as Windows Service
-  clawdbot-lite --direct           # Development mode (no supervisor)
+  smartseek                    # Start normally
+  smartseek setup              # Run setup wizard
+  smartseek service install    # Install as Windows Service
+  smartseek --direct           # Development mode (no supervisor)
 
 Environment Variables:
   DEEPSEEK_API_KEY    Your DeepSeek API key
   TELEGRAM_BOT_TOKEN  Your Telegram bot token (optional)
 
 Configuration:
-  ~/.clawdbot-lite/config.json
+  ~/.smartseek/config.json
 
 Health Endpoint:
   http://localhost:18790/health
@@ -132,7 +136,7 @@ Health Endpoint:
     showBanner();
     console.log('\n⚠️  DeepSeek API key not configured!\n');
     console.log('Run setup wizard:');
-    console.log('  clawdbot-lite setup\n');
+    console.log('  smartseek setup\n');
     console.log('Or set environment variable:');
     console.log('  set DEEPSEEK_API_KEY=your-api-key\n');
     process.exit(1);
@@ -149,7 +153,7 @@ Health Endpoint:
   showBanner();
 
   // Check run mode
-  const isWorker = process.env.CLAWDBOT_WORKER === '1';
+  const isWorker = process.env.SMARTSEEK_WORKER === '1';
   const isDirect = flags.direct || config.supervisor?.enabled === false;
 
   if (isWorker) {
@@ -165,7 +169,7 @@ Health Endpoint:
  * Run as supervisor (spawns and monitors worker)
  */
 async function runSupervisor(config: ReturnType<typeof loadConfig>): Promise<void> {
-  log.info('Starting ClawdBot Lite in supervisor mode...');
+  log.info('Starting SmartSeek in supervisor mode...');
 
   const metrics = getMetricsCollector();
   let supervisor: Supervisor | null = null;
@@ -176,7 +180,7 @@ async function runSupervisor(config: ReturnType<typeof loadConfig>): Promise<voi
       args: [],
       env: {
         ...process.env,
-        CLAWDBOT_WORKER: '1',
+        SMARTSEEK_WORKER: '1',
       },
       maxRestarts: 10,
       restartDelayMs: 5000,
@@ -254,9 +258,9 @@ async function runSupervisor(config: ReturnType<typeof loadConfig>): Promise<voi
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);
 
-  log.info(`ClawdBot Lite running!`);
+  log.info(`SmartSeek running!`);
   log.info(`Health: http://${config.gateway.host}:${config.gateway.healthPort}/health`);
-  console.log(`\n✅ ClawdBot Lite is running!`);
+  console.log(`\n✅ SmartSeek is running!`);
   console.log(`   Health: http://${config.gateway.host}:${config.gateway.healthPort}/health`);
   console.log(`   Press Ctrl+C to stop\n`);
 }
@@ -265,7 +269,7 @@ async function runSupervisor(config: ReturnType<typeof loadConfig>): Promise<voi
  * Run as worker (actual AI processing)
  */
 async function runWorker(config: ReturnType<typeof loadConfig>): Promise<void> {
-  log.info('Starting ClawdBot Lite worker...');
+  log.info('Starting SmartSeek worker...');
 
   const heartbeatSender = new HeartbeatSender(
     (data) => {
@@ -321,7 +325,7 @@ async function runWorker(config: ReturnType<typeof loadConfig>): Promise<void> {
  * Run directly without supervisor (development mode)
  */
 async function runDirect(config: ReturnType<typeof loadConfig>): Promise<void> {
-  log.info('Starting ClawdBot Lite in direct mode...');
+  log.info('Starting SmartSeek in direct mode...');
 
   // Start health server
   const healthServer = createHealthServer({
@@ -344,7 +348,7 @@ async function runDirect(config: ReturnType<typeof loadConfig>): Promise<void> {
   try {
     await startGateway(config);
     log.info(`Gateway running on port ${config.gateway.port}`);
-    console.log(`\n✅ ClawdBot Lite is running (direct mode)!`);
+    console.log(`\n✅ SmartSeek is running (direct mode)!`);
     console.log(`   Gateway: ws://${config.gateway.host}:${config.gateway.port}`);
     console.log(`   Health: http://${config.gateway.host}:${config.gateway.healthPort}/health`);
     console.log(`   Press Ctrl+C to stop\n`);

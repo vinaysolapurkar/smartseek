@@ -1,10 +1,10 @@
 @echo off
 :: ============================================================================
-:: ClawdBot Lite - One-Click Installer
+:: SmartSeek - One-Click Installer
 :: The cheapest way to run your own AI assistant
 :: ============================================================================
 
-title ClawdBot Lite Installer
+title SmartSeek Installer
 color 0A
 
 echo.

@@ -1,5 +1,5 @@
 /**
- * ClawdBot Lite - Interactive Setup Wizard
+ * SmartSeek - Interactive Setup Wizard
  */
 
 import * as readline from 'node:readline';
@@ -32,10 +32,10 @@ function printBanner(): void {
   print(`
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║              CLAWDBOT LITE - SETUP WIZARD                     ║
+║              SMARTSEEK - SETUP WIZARD                         ║
 ║                                                               ║
-║   The cheapest way to run your own AI assistant               ║
-║   Powered by DeepSeek AI (~$0.14/million tokens)              ║
+║   Make DeepSeek smarter - 100x cheaper than GPT-4!            ║
+║   Cost: ~$0.14/million tokens                                 ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 `);
@@ -86,7 +86,7 @@ async function testTelegramToken(token: string): Promise<boolean> {
 export async function runSetup(): Promise<void> {
   printBanner();
 
-  const configDir = join(homedir(), '.clawdbot-lite');
+  const configDir = join(homedir(), '.smartseek');
   const configPath = join(configDir, 'config.json');
 
   // Create config directory
@@ -219,11 +219,11 @@ export async function runSetup(): Promise<void> {
   printSection('SETUP COMPLETE');
 
   print(`
-  🎉 ClawdBot Lite is ready to use!
+  🎉 SmartSeek is ready to use!
 
   QUICK START:
-    clawdbot-lite              Start the AI assistant
-    clawdbot-lite --direct     Start in development mode
+    smartseek              Start the AI assistant
+    smartseek --direct     Start in development mode
 
   IN THE TERMINAL:
     • Type messages to chat with DeepSeek AI
@@ -240,8 +240,8 @@ export async function runSetup(): Promise<void> {
 
   print(`
   USEFUL COMMANDS:
-    clawdbot-lite service install    Install as Windows Service
-    clawdbot-lite help               Show all commands
+    smartseek service install    Install as Windows Service
+    smartseek help               Show all commands
 
   HEALTH CHECK:
     http://localhost:18790/health
@@ -249,12 +249,12 @@ export async function runSetup(): Promise<void> {
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `);
 
-  const startNow = await question('  Would you like to start ClawdBot Lite now? (Y/n): ');
+  const startNow = await question('  Would you like to start SmartSeek now? (Y/n): ');
 
   rl.close();
 
   if (startNow.toLowerCase() !== 'n') {
-    print('\n  Starting ClawdBot Lite...\n');
+    print('\n  Starting SmartSeek...\n');
 
     // Re-run without setup flag
     const { main } = await import('./index.js');

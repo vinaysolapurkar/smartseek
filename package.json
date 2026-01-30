@@ -1,7 +1,7 @@
 {
-  "name": "clawdbot-lite",
+  "name": "smartseek",
   "version": "1.0.0",
-  "description": "The cheapest way to run your own AI assistant - powered by DeepSeek AI",
+  "description": "Make DeepSeek smarter with intelligence augmentation - 100x cheaper than GPT-4",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -34,12 +34,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pocketparent/clawdbot-lite.git"
+    "url": "git+https://github.com/vinaysolapurkar/smartseek.git"
   },
   "bugs": {
-    "url": "https://github.com/pocketparent/clawdbot-lite/issues"
+    "url": "https://github.com/vinaysolapurkar/smartseek/issues"
   },
-  "homepage": "https://github.com/pocketparent/clawdbot-lite#readme",
+  "homepage": "https://github.com/vinaysolapurkar/smartseek#readme",
   "engines": {
     "node": ">=20.0.0"
   },

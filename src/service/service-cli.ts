@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export async function runServiceCommand(command: string): Promise<void> {
-  console.log(`\nClawdBot Lite - Windows Service Manager\n`);
+  console.log(`\nSmartSeek - Windows Service Manager\n`);
 
   try {
     // Dynamic import to avoid issues on non-Windows
@@ -17,7 +17,7 @@ export async function runServiceCommand(command: string): Promise<void> {
     const Service = nodeWindows.Service;
 
     const svc = new Service({
-      name: 'ClawdBot Lite',
+      name: 'SmartSeek',
       description: 'AI Assistant powered by DeepSeek',
       script: join(__dirname, '..', 'index.js'),
       nodeOptions: [],
@@ -39,7 +39,7 @@ export async function runServiceCommand(command: string): Promise<void> {
         svc.on('install', () => {
           console.log('✅ Service installed successfully!');
           console.log('\nTo start the service:');
-          console.log('  clawdbot-lite service start');
+          console.log('  smartseek service start');
           console.log('\nOr use Windows Services (services.msc)');
           process.exit(0);
         });
@@ -132,7 +132,7 @@ export async function runServiceCommand(command: string): Promise<void> {
       case 'help':
       default:
         console.log(`
-Usage: clawdbot-lite service <command>
+Usage: smartseek service <command>
 
 Commands:
   install     Install as Windows Service
@@ -148,9 +148,9 @@ Notes:
   - After install, the service will auto-start on boot
 
 Examples:
-  clawdbot-lite service install
-  clawdbot-lite service start
-  clawdbot-lite service status
+  smartseek service install
+  smartseek service start
+  smartseek service status
 `);
         break;
     }

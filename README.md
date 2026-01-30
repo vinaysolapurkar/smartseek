@@ -1,39 +1,40 @@
-# ClawdBot Lite
+# SmartSeek
 
-**The cheapest way to run your own AI assistant** - powered by DeepSeek AI.
+**Make DeepSeek smarter with intelligence augmentation** - 100x cheaper than GPT-4.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-green.svg)](https://nodejs.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)](https://www.microsoft.com/windows)
 
-## Why ClawdBot Lite?
+## Why SmartSeek?
 
-| Feature | ClawdBot Lite | GPT-4 | Claude |
-|---------|---------------|-------|--------|
+| Feature | SmartSeek | GPT-4 | Claude |
+|---------|-----------|-------|--------|
 | **Cost per 1M tokens** | $0.14 input / $0.28 output | $30 input / $60 output | $15 input / $75 output |
 | **Savings** | **100x cheaper!** | Baseline | 50% cheaper than GPT-4 |
 | **Self-hosted** | ✅ Yes | ❌ No | ❌ No |
 | **Windows Service** | ✅ Yes | ❌ No | ❌ No |
 | **Telegram Bot** | ✅ Built-in | ❌ No | ❌ No |
-| **Auto-recovery** | ✅ AI-powered | ❌ No | ❌ No |
+| **Intelligence Boost** | ✅ Chain-of-thought, tools, ReAct | ❌ Basic | ❌ Basic |
 
-## What is this?
+## What is SmartSeek?
 
-ClawdBot Lite is a **lightweight, self-hosted AI assistant** that:
+SmartSeek takes **DeepSeek** (a cheap but capable LLM) and makes it **smarter** through:
 
-- 🚀 **Runs on your Windows PC** as a background service
-- 💰 **Costs almost nothing** - uses DeepSeek AI (~$0.14/million tokens)
-- 🔄 **Never crashes** - AI-powered supervisor auto-recovers from failures
-- 📱 **Works with Telegram** - chat with your AI from anywhere
-- 🧠 **Intelligence augmented** - chain-of-thought reasoning, tool use, web search
+- 🧠 **Chain-of-thought prompting** - forces step-by-step reasoning
+- 🔧 **Tool use** - calculator, web search, code execution
+- 🔄 **ReAct agent** - iterative reasoning + acting for complex tasks
+- ✅ **Self-reflection** - verifies and improves its own answers
+
+Result: **GPT-4 level intelligence at 1% of the cost.**
 
 ## Quick Start
 
-### One-Click Install
+### One-Click Install (Windows)
 
 ```batch
-git clone https://github.com/pocketparent/clawdbot-lite.git
-cd clawdbot-lite
+git clone https://github.com/vinaysolapurkar/smartseek.git
+cd smartseek
 INSTALL.bat
 ```
 
@@ -41,11 +42,14 @@ INSTALL.bat
 
 ```powershell
 # Clone the repo
-git clone https://github.com/pocketparent/clawdbot-lite.git
-cd clawdbot-lite
+git clone https://github.com/vinaysolapurkar/smartseek.git
+cd smartseek
 
 # Install dependencies
 npm install
+
+# Build
+npm run build
 
 # Run setup (will ask for DeepSeek API key)
 npm run setup
@@ -98,33 +102,40 @@ npm start
 
 ## Features
 
+### 🧠 Intelligence Augmentation (The "Smart" in SmartSeek)
+
+DeepSeek alone is good but not great. SmartSeek makes it smarter:
+
+| Technique | What it does | Example |
+|-----------|--------------|---------|
+| **Chain-of-thought** | Forces step-by-step reasoning | "Let me think through this..." |
+| **Tool use** | Executes code, searches web | Calculator for math, web for facts |
+| **ReAct agent** | Iterative reason → act → observe | Complex multi-step tasks |
+| **Self-reflection** | Reviews and improves answers | "Wait, let me verify that..." |
+
 ### 🛡️ Ultra-Resilient
+
 - **Supervisor/Worker architecture** - crashes don't kill the service
 - **Heartbeat monitoring** - detects hung processes in 15 seconds
 - **AI-powered recovery** - decides whether to restart, wait, or escalate
 - **Circuit breakers** - prevents cascade failures
 - **Bounded queues** - handles backpressure gracefully
 
-### 🧠 Intelligence Augmented
-- **Chain-of-thought prompting** - forces step-by-step reasoning
-- **Tool use** - calculator, web search, code execution
-- **ReAct agent** - iterative reasoning + acting
-- **Self-reflection** - verifies and improves answers
-
 ### 💬 Multi-Channel
-- **Terminal UI** - beautiful command-line interface
+
 - **Telegram** - chat from your phone
 - **WebSocket API** - integrate with your apps
 - **Health endpoint** - monitor at `/health`
 
 ### 💰 Cost Effective
+
 - **DeepSeek Chat**: $0.14/M input, $0.28/M output
 - **DeepSeek Reasoner (R1)**: $0.55/M input, $2.19/M output
 - **Monthly cost**: Typically under $1 for personal use!
 
 ## Configuration
 
-Configuration is stored in `~/.clawdbot-lite/config.json`:
+Configuration is stored in `~/.smartseek/config.json`:
 
 ```json
 {
@@ -145,27 +156,14 @@ Configuration is stored in `~/.clawdbot-lite/config.json`:
 
 ## Commands
 
-### In Terminal UI
-
-| Command | Description |
-|---------|-------------|
-| `/help` | Show all commands |
-| `/model deepseek-chat` | Switch to fast chat model |
-| `/model deepseek-r1` | Switch to reasoning model |
-| `/clear` | Clear conversation |
-| `/exit` | Exit the TUI |
-
 ### CLI
 
 ```bash
-# Start everything
+# Start everything (supervisor + worker)
 npm start
 
-# Start gateway only
+# Start gateway only (no supervisor)
 npm run gateway
-
-# Start TUI only
-npm run tui
 
 # Install as Windows Service
 npm run service:install
@@ -183,27 +181,11 @@ curl http://localhost:18790/health
 | `http://localhost:18790/metrics` | Prometheus metrics |
 | `http://localhost:18790/stats` | Detailed statistics |
 
-## Why Separate from ClawdBot?
+## Why "SmartSeek"?
 
-This project is a **lightweight fork** of [ClawdBot](https://github.com/pocketparent/clawdbot) optimized for:
+**Smart** + **DeepSeek** = **SmartSeek**
 
-1. **Cost** - DeepSeek-first, not Claude/GPT-first
-2. **Simplicity** - Just the essentials, no complexity
-3. **Windows** - Native Windows service support
-4. **Resilience** - Supervisor architecture for 24/7 uptime
-5. **Self-hosted** - Your data stays on your machine
-
-**ClawdBot** is the full-featured AI assistant platform with:
-- Multi-model support (Claude, GPT-4, etc.)
-- Advanced agent capabilities
-- Plugin system
-- Multi-platform (macOS, Linux, Windows)
-
-**ClawdBot Lite** is for users who want:
-- The cheapest possible AI assistant
-- Simple setup on Windows
-- 24/7 reliability
-- Telegram integration
+We take DeepSeek's affordable LLM and augment it with intelligence techniques to match expensive models at a fraction of the cost.
 
 ## Contributing
 
@@ -211,7 +193,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
 ```bash
 # Fork and clone
-git clone https://github.com/YOUR_USERNAME/clawdbot-lite.git
+git clone https://github.com/YOUR_USERNAME/smartseek.git
 
 # Create feature branch
 git checkout -b feature/amazing-feature
@@ -232,16 +214,15 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Credits
 
-- Built on top of [ClawdBot](https://github.com/pocketparent/clawdbot)
 - Powered by [DeepSeek AI](https://deepseek.com)
-- Inspired by the need for affordable AI assistants
+- Intelligence augmentation inspired by ReAct, Chain-of-Thought papers
 
 ## Support
 
-- 🐛 [Report bugs](https://github.com/pocketparent/clawdbot-lite/issues)
-- 💡 [Request features](https://github.com/pocketparent/clawdbot-lite/issues)
-- 💬 [Discussions](https://github.com/pocketparent/clawdbot-lite/discussions)
+- 🐛 [Report bugs](https://github.com/vinaysolapurkar/smartseek/issues)
+- 💡 [Request features](https://github.com/vinaysolapurkar/smartseek/issues)
+- 💬 [Discussions](https://github.com/vinaysolapurkar/smartseek/discussions)
 
 ---
 
-**Made with ❤️ for people who want AI without the hefty price tag.**
+**Make AI affordable. Make DeepSeek smart. Use SmartSeek.**

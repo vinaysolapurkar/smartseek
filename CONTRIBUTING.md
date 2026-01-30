@@ -1,6 +1,6 @@
-# Contributing to ClawdBot Lite
+# Contributing to SmartSeek
 
-Thank you for your interest in contributing! This document provides guidelines for contributing to ClawdBot Lite.
+Thank you for your interest in contributing! This document provides guidelines for contributing to SmartSeek.
 
 ## Code of Conduct
 
@@ -10,7 +10,7 @@ Be respectful, inclusive, and constructive. We're all here to build something us
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/pocketparent/clawdbot-lite/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/vinaysolapurkar/smartseek/issues)
 2. If not, create a new issue with:
    - Clear title describing the bug
    - Steps to reproduce
@@ -20,7 +20,7 @@ Be respectful, inclusive, and constructive. We're all here to build something us
 
 ### Suggesting Features
 
-1. Check existing [Issues](https://github.com/pocketparent/clawdbot-lite/issues) and [Discussions](https://github.com/pocketparent/clawdbot-lite/discussions)
+1. Check existing [Issues](https://github.com/vinaysolapurkar/smartseek/issues) and [Discussions](https://github.com/vinaysolapurkar/smartseek/discussions)
 2. Open a new issue with:
    - Clear description of the feature
    - Why it would be useful
@@ -30,8 +30,8 @@ Be respectful, inclusive, and constructive. We're all here to build something us
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/clawdbot-lite.git
-   cd clawdbot-lite
+   git clone https://github.com/YOUR_USERNAME/smartseek.git
+   cd smartseek
    ```
 
 2. **Create a feature branch**
@@ -105,7 +105,7 @@ npm start
 ### Project Structure
 
 ```
-clawdbot-lite/
+smartseek/
 ├── src/
 │   ├── index.ts           # Main entry point
 │   ├── config/            # Configuration management
@@ -201,7 +201,7 @@ describe('CircuitBreaker', () => {
 
 ## Questions?
 
-- Open a [Discussion](https://github.com/pocketparent/clawdbot-lite/discussions)
+- Open a [Discussion](https://github.com/vinaysolapurkar/smartseek/discussions)
 - Check existing issues and PRs
 
 Thank you for contributing! 🎉
