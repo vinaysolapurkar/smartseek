@@ -42,6 +42,70 @@ SmartSeek augments DeepSeek with intelligence techniques:
 
 ---
 
+## Intelligence Levels
+
+SmartSeek offers 4 intelligence levels - trade off cost vs quality:
+
+| Level | API Calls | Cost/Query | Best For |
+|-------|-----------|------------|----------|
+| **FAST** | 1 | ~$0.001 | Simple questions, chat |
+| **SMART** | 3-5 | ~$0.005 | Most tasks, good balance |
+| **GENIUS** | 10-15 | ~$0.02 | Complex analysis, research |
+| **ULTRA** | 20-30 | ~$0.05 | Critical decisions, maximum accuracy |
+
+### FAST Mode
+Simple chain-of-thought. Good for casual chat.
+```javascript
+smartQuery("What is Python?", { level: 'fast' })
+```
+
+### SMART Mode (Default)
+Self-Consistency voting - generates 3-5 answers, picks the best.
+```javascript
+smartQuery("Explain React hooks", { level: 'smart' })
+```
+
+### GENIUS Mode
+- **Tree of Thoughts**: Explores multiple reasoning paths
+- **Multi-Agent Debate**: Analyst, Critic, Creative personas argue
+- **Expert Panels**: Domain experts weigh in
+
+```javascript
+geniusQuery("Should I use microservices or monolith for my startup?")
+```
+
+### ULTRA Mode
+Full pipeline combining ALL techniques:
+1. Multi-Agent Debate (3 rounds)
+2. Expert Panel (scientist, strategist, critic)
+3. Iterative Refinement (3 passes)
+4. Final Synthesis
+
+```javascript
+ultraQuery("What's the best investment strategy for $100k in 2024?")
+```
+
+### Advanced Functions
+
+```javascript
+// Have AI agents debate a question
+debate("Is AI dangerous?", rounds=3)
+
+// Get expert opinions from multiple domains
+askExperts("How to scale a database?", ["programmer", "strategist"])
+
+// Explore multiple reasoning paths
+explore("How to solve climate change?")
+
+// Generate 5 answers and vote on best
+voteOnAnswer("What causes inflation?", samples=5)
+
+// Iteratively improve an answer
+refineAnswer("Explain quantum computing", iterations=3)
+```
+
+---
+
 ## Use Cases
 
 ### 1. 24/7 Personal AI Assistant
